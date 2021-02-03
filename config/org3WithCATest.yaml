@@ -1,0 +1,28 @@
+version: 1.0.0
+client:
+  organization: Org3
+  connection:
+    timeout:
+      peer:
+        endorser: '300'
+organizations:
+  Org3:
+    mspid: Org3MSP
+    cryptoPath: /home/lilingj/go/src/github.com/hyperledger/fabric-samples/first-network/crypto-config/peerOrganizations/org3.example.com/users/{username}@org3.example.com/msp
+    peers:
+    certificateAuthorities:
+    - ca.org3.example.com
+
+peers:
+
+certificateAuthorities:
+  ca.org3.example.com:
+    url: https://localhost:9054
+    caName: ca-org3 # fabric ca容器的环境变量里
+    tlsCACerts:
+      path: /home/lilingj/work/lilingj-app/config/org3work/tls-cert.pem
+    registrar:
+        enrollId: lljadmin
+        enrollSecret: lljadminpw        
+    httpOptions:
+      verify: false
